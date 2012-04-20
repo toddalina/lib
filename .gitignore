@@ -1,0 +1,60 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# C-Sharp #
+
+# C++ #
+# Compiled Object files #
+*.slo
+*.lo
+*.o
+
+# Large files that don't make sense to keep on github #
+*.ipch
+ipch/*
+
+# Compiled Dynamic libraries #
+*.so
+
+# Compiled Static libraries #
+*.lai
+*.la
+*.a
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# Visual Studio Related Files #
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Backup files #
+################
+*.bak
