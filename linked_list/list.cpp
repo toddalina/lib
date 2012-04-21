@@ -1,14 +1,27 @@
-//#include <iostream>
+/*
+	Copyright 2012 by Toddalina
+	Licensed under ...
+	Date: 4-20-12
+*/
+/*		Provides the implementation for the linked list class		*/
 #include "list.h"
-//using namespace std;
 
+/* list::~list()
+	Default Destructor for the list class. Just call Deleter().
+	Preconditions: none
+	Postconditions: none
+*/
 list::~list()
 {
 	/*	Destruction is done in the Deleter method, since when passing around the set, 
-			destructors are called that delete all of the items, nad stuff disappears.	*/
+			destructors are called that delete all of the items, and stuff disappears.	*/
 }
 
-
+/* void list::Deleter()
+	Deletes a linked list
+	Preconditions: none
+	Postconditions: The list is deleted.
+*/
 void list::Deleter()
 {
 	node * current = root;
@@ -25,22 +38,26 @@ void list::Deleter()
 	}
 }
 
-
+/* void list::Insert(int item)
+	Inserts a new item into the linked list
+	Preconditions: Valid int is passed to enter into the linked list
+	Postconditions: The item is added to the list. As items are added to the list, they are automatically sorted. (Basically finds where the int would go and sticks it there.)
+*/
 void list::Insert(int item)
 {
-	if (root == NULL)
+	if (root == NULL)								// If the list is empty...
 	{
 		root = new node(item);
 		root->left = NULL;
 		root->right = NULL;
 		++size;
 	}
-	else
+	else											// The list is not empty
 	{
-		if (root->data == item)
+		if (root->data == item)						// Check and see if the item is already in the list
 			return;
 		node * current = root;
-		while (item > current->data)
+		while (item > current->data)				// Find the spot to insert the item
 		{
 			if (current->right == NULL)
 				break;
@@ -48,7 +65,7 @@ void list::Insert(int item)
 		}
 		node * new_node = new node(item);
 		++size;
-		if (item > current->data)
+		if (item > current->data)					// Insert the new node
 		{
 			current->right = new_node;
 			new_node->left = current;
@@ -71,7 +88,11 @@ void list::Insert(int item)
 	}
 }
 
-
+/* void list::Erase(int item)
+	Removes an item from the linked list
+	Preconditions: Valid int is passed to remove from the linked list
+	Postconditions: The item is removed from the list.
+*/
 void list::Erase(int item)
 {
 	if (root == NULL)
@@ -129,7 +150,11 @@ void list::Erase(int item)
 	}
 }
 
-// Might not need this... Actually, implement it.
+/* bool list::Find()
+	Finds an item in the linked list
+	Preconditions: Valid int is to be searched for
+	Postconditions: A boolean is returned stating whether the item was found or not
+*/
 bool list::Find(int item)
 {
 	node * current = root;
@@ -143,7 +168,11 @@ bool list::Find(int item)
 	return false;
 }
 
-
+/* void list::Print()
+	Prints the linked list
+	Preconditions: none
+	Postconditions: The list is printed
+*/
 void list::Print() const
 {
 	node * current = root;
